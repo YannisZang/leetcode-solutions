@@ -20,7 +20,7 @@ public:
 
     }
 
-    void backtracking(const int& k, const int& n, int idx, int sum, vector<vector<int>>& res, vector<int> ans) {
+    void backtracking(const int& k, const int& n, int idx, int sum, vector<vector<int>>& res, vector<int>& ans) {
         if (sum > n) return;
         if (ans.size() == k) {
             // sum += idx;
