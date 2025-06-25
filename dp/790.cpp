@@ -15,7 +15,7 @@ public:
         int i = 4;
         int mod = 1e9 + 7;
         while (i <= n) {
-            res[i] = (res[i-1]*2 + 1L * res[i-3]) % mod;
+            res[i] = (2L * res[i-1] + 1L * res[i-3]) % mod;
             i++;
         }
         return res[n];
