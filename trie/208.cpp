@@ -1,5 +1,7 @@
 #include <string>
 
+// 208. Implement Trie (Prefix Tree)
+
 using namespace std;
 
 
@@ -19,9 +21,22 @@ class TrieNode {
 class Trie {
 private:
     TrieNode* root;
+
+    void freeTrie(TrieNode* node) {
+        if (!node) return;
+        for (int i = 0; i < 26; ++i) {
+            if (node->child[i])
+                freeTrie(node->child[i]);
+        }
+        delete node; // 最后释放当前节点
+    }
 public:
     Trie() {
         root = new TrieNode();
+    }
+
+    ~Trie() {
+        freeTrie(root);
     }
     
     void insert(string word) {
